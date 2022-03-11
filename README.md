@@ -1,2 +1,2 @@
 # Performance_optimization_react
-Created with CodeSandbox
+React.memo, useCallBack, useMemoでパフォーマンス最適化勉強
