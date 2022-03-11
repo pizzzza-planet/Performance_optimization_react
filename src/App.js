@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const Count = React.memo(({ text, countState }) => {
   console.log(countState);
@@ -19,8 +19,12 @@ export default function App() {
   const [countStateA, setCountStateA] = useState(0);
   const [countStateB, setCountStateB] = useState(0);
 
-  const incrementACounter = () => setCountStateA(countStateA + 1);
-  const incrementBCounter = () => setCountStateB(countStateB + 1);
+  const incrementACounter = useCallback(() => setCountStateA(countStateA + 1), [
+    countStateA
+  ]);
+  const incrementBCounter = useCallback(() => setCountStateB(countStateB + 1), [
+    countStateB
+  ]);
 
   return (
     <div className="App">
