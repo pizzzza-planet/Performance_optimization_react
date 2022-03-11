@@ -10,6 +10,11 @@ const Count = React.memo(({ text, countState }) => {
   );
 });
 
+const Button = React.memo(({ counterState, buttonValue }) => {
+  console.log("Button child component:", buttonValue);
+  return <button onClick={counterState}>{buttonValue}</button>;
+});
+
 export default function App() {
   const [countStateA, setCountStateA] = useState(0);
   const [countStateB, setCountStateB] = useState(0);
@@ -22,8 +27,8 @@ export default function App() {
       <>
         <Count text="A ボタン" countState={countStateA} />
         <Count text="B ボタン" countState={countStateB} />
-        <button onClick={incrementACounter}>A ボタン</button>
-        <button onClick={incrementBCounter}>B ボタン</button>
+        <Button counterState={incrementACounter} buttonValue="A ボタン" />
+        <Button counterState={incrementBCounter} buttonValue="B ボタン" />
       </>
     </div>
   );
